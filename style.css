@@ -133,8 +133,11 @@ form div {
     display: flex;
     flex-direction: column;
     flex: 1 1 240px;
-    margin-right: 3em;
     max-width: 300px;
+}
+
+form div:nth-child(odd) {
+    margin-right: 3em;
 }
 
 label {
