@@ -30,20 +30,41 @@
         <section>
             <h2>Let's do this!</h2>
             <form action="" method="post" id="sign-up">
-                <label for="firstname">FIRST NAME</label>
-                <input type="text" id="firstname">
+                <div>
+                    <label for="firstname">FIRST NAME</label>
+                    <input type="text" id="firstname" pattern="^[a-zA-Z]*$" placeholder="John">
+                    <p class="errorMsg"></p>
+                </div>
 
-                <label for="lastname">LAST NAME</label>
-                <input type="text" id="lastname">
+                <div>
+                    <label for="lastname">LAST NAME</label>
+                    <input type="text" id="lastname" pattern="^[a-zA-Z]*$" placeholder="Doe">
+                    <p class="errorMsg"></p>
+                </div>
 
-                <label for="email">EMAIL</label>
-                <input type="email" name="email" id="email">
+                <div>
+                    <label for="email">EMAIL *</label>
+                    <input type="email" name="email" id="email" placeholder="user@gmail.com" required>
+                    <p class="errorMsg">Please fill in this field properly</p>
+                </div>
 
-                <label for="phone-number">PHONE NUMBER</label>
-                <input type="number" name="phone-number" id="phone-number">
+                <div>
+                    <label for="phone-number">PHONE NUMBER</label>
+                    <input type="number" name="phone-number" id="phone-number" placeholder="0123456789">
+                    <p class="errorMsg"></p>
+                </div>
 
-                <label for="password">PASSWORD</label>
-                <input type="password" name="password" id="password">
+                <div>
+                    <label for="password">PASSWORD *</label>
+                    <input type="password" name="password" id="password" required>
+                    <p class="errorMsg">Please fill in this field properly</p>
+                </div>
+
+                <div>
+                    <label for="confirm-password">CONFIRM PASSWORD *</label>
+                    <input type="password" name="confirm-password" id="confirm-password" required>
+                    <p class="errorMsg">Please fill in this field properly</p>
+                </div>
             </form>
         </section>
         <section>
