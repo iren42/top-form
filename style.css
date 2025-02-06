@@ -185,5 +185,6 @@ button[type="submit"] {
 }
 
 a {
-
+    text-decoration: none;
+    font-weight: bold;
 }
