@@ -98,24 +98,29 @@ section {
     padding: 0 var(--section-padding-right);
 }
 
-.description {
-    font-weight: 600;
-}
-
-.description p {
-    margin-bottom: 2rem;
-    font-size: var(--font-size-md);
-    max-width: var(--max-width);
-}
-
-.description p:nth-child(1) {
-    margin-top: 8rem;
+section:last-child {
+    padding-top: 2em;
+    margin-bottom: 5em;
 }
 
 section:nth-child(2) {
     background-color: white;
     padding: 1rem var(--section-padding-right);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+section:first-child {
+    font-weight: 600;
+}
+
+section:first-child p {
+    margin-bottom: 2rem;
+    font-size: var(--font-size-md);
+    max-width: var(--max-width);
+}
+
+section:first-child p:nth-child(1) {
+    margin-top: 8rem;
 }
 
 form {
@@ -166,10 +171,6 @@ input:user-invalid {
 
 input:valid {
     border-color: lightgreen;
-}
-
-section:last-child {
-    padding-top: 2em;
 }
 
 button[type="submit"] {
