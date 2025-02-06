@@ -32,16 +32,26 @@
 body {
     display: flex;
     height: 100svh;
+    flex-wrap: wrap;
 }
 
 .banner {
-    width: min(800px);
     background-image: url('./images/brooke-lark-donuts.jpg');
     background-size: contain;
     display: flex;
+    flex: 1 0 30%;
+    min-width: 300px;
+    
 }
 
 h1 {
     text-align: center;
     width: 100%;
+}
+
+.hero {
+    flex: 1 1 70%;
+    display: flex;
+    min-width: 900px;
+
 }
