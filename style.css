@@ -42,6 +42,7 @@
 }
 
 body {
+    background-color: aliceblue;
     display: flex;
     height: 100svh;
     flex-wrap: wrap;
@@ -52,8 +53,7 @@ header {
     background-image: url('./images/brooke-lark-donuts.jpg');
     background-size: contain;
     display: flex;
-    flex: 1 0 30%;
-    min-width: 300px;
+    flex: 1 1 30%;
     position: relative;
 }
 
@@ -90,8 +90,6 @@ main {
     flex: 1 1 70%;
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
-    background-clip: border-box;
 }
 
 section {
@@ -191,4 +189,24 @@ button[type="submit"] {
 a {
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (max-width: 992px) {
+    body {
+        display: block;
+    }
+
+    .banner {
+        padding: 0;
+        margin: 4rem 0;
+    }
+
+    h1 {
+        font-size: calc(var(--font-size-xlg) / 2);
+    }
+
+    img {
+        height: calc(var(--font-size-xlg) / 2 - 1rem);
+    }
 }
