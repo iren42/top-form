@@ -45,13 +45,14 @@ body
     flex-wrap: wrap;
 }
 
-.header
+header
 {
     background-image: url('./images/brooke-lark-donuts.jpg');
     background-size: contain;
     display: flex;
     flex: 1 0 30%;
     min-width: 300px;
+    position: relative;
 }
 
 .banner
@@ -67,13 +68,20 @@ body
     align-items: center;
 }
 
+header p {
+    position: absolute;
+    bottom: 0.5em;
+    text-align: center;
+    width: 100%;
+}
+
 h1
 {
     font-size: var(--font-size-lg);
     font-family: "source_sans_proregular";
 }
 
-.main
+main
 {
     flex: 1 1 70%;
     display: flex;
