@@ -28,6 +28,9 @@
 :root
 {
     --font-size-lg: 4.3rem;
+    --font-size-md: 1.5rem;
+    --section-padding-top: 5rem;
+    --section-padding-right: 2rem;
 }
 
 *
@@ -85,5 +88,23 @@ main
 {
     flex: 1 1 70%;
     display: flex;
-    min-width: 900px;
+    flex-direction: column;
+}
+
+section {
+    padding: var(--section-padding-top) var(--section-padding-right);
+}
+
+.description {
+    font-weight: 900;
+}
+
+.description p {
+    margin-bottom: 2rem;
+    font-size: var(--font-size-md);
+    width: 75ch;
+}
+
+.description p:nth-child(1) {
+    margin-top: 4rem;
 }
