@@ -2,10 +2,11 @@
 
 
 
-@font-face {
+@font-face
+{
     font-family: 'source_sans_proregular';
     src: url('./fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('./fonts/sourcesanspro-regular-webfont.woff') format('woff');
+        url('./fonts/sourcesanspro-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -14,44 +15,67 @@
 
 
 
-@font-face {
+@font-face
+{
     font-family: 'alex_brushregular';
     src: url('./fonts/alexbrush-regular-webfont.woff2') format('woff2'),
-         url('./fonts/alexbrush-regular-webfont.woff') format('woff');
+        url('./fonts/alexbrush-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
-* {
+:root
+{
+    --font-size-lg: 4.3rem;
+}
+
+*
+{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    line-height: 1.5;
 }
 
-body {
+body
+{
     display: flex;
     height: 100svh;
     flex-wrap: wrap;
 }
 
-.banner {
+.header
+{
     background-image: url('./images/brooke-lark-donuts.jpg');
     background-size: contain;
     display: flex;
     flex: 1 0 30%;
     min-width: 300px;
-    
 }
 
-h1 {
-    text-align: center;
+.banner
+{
     width: 100%;
+    margin-top: 10em;
+    height: fit-content;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero {
+h1
+{
+    font-size: var(--font-size-lg);
+    font-family: "source_sans_proregular";
+}
+
+.main
+{
     flex: 1 1 70%;
     display: flex;
     min-width: 900px;
-
 }
