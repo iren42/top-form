@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./normalize.css">
+    <title>A Form</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -30,7 +29,7 @@
         </section>
         <section>
             <h2>Let's do this!</h2>
-            <form action="" method="post" id="sign-up">
+            <form novalidate id="sign-up">
                 <div>
                     <label for="firstname">FIRST NAME</label>
                     <input type="text" id="firstname" pattern="^[a-zA-Z]*$" placeholder="John">
@@ -42,6 +41,19 @@
                     <input type="text" id="lastname" pattern="^[a-zA-Z]*$" placeholder="Doe">
                     <p class="errorMsg"></p>
                 </div>
+
+                <div>
+                    <label for="country">COUNTRY</label>
+                    <input type="text" id="country" pattern="^[a-zA-Z]*$" placeholder="France">
+                    <p class="errorMsg"></p>
+                </div>
+
+                <div>
+                    <label for="postal-code">POSTAL CODE</label>
+                    <input type="text" id="postal-code" pattern="^[0-9]*$" placeholder="75000">
+                    <p class="errorMsg"></p>
+                </div>
+
 
                 <div>
                     <label for="email">EMAIL *</label>
