@@ -139,21 +139,33 @@ label {
     font-weight: 500;
 }
 
-input {
+input,
+select {
     border: 1px solid lightgray;
     border-radius: var(--border-radius);
     height: 2.5rem;
     padding: 0 0.4em;
     font-size: var(--font-size-md);
+	background-color: transparent;
 }
 
-input:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: blue;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+	color: black;
 }
 
-input:user-invalid {
+select {
+	appearance: base-select;
+	&::picker(select) {
+		appearance: base-select;
+	}
+}
+
+input:user-invalid,
+select:user-invalid {
     border-color: red;
 }
 
@@ -162,10 +174,12 @@ input:user-invalid {
     color: transparent;
 }
 
+:has(> select:user-invalid) .errorMsg,
 :has(> input:user-invalid) .errorMsg {
     color: red;
 }
 
+select:user-valid,
 input:user-valid {
     border-color: lightgreen;
 }

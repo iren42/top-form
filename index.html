@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Form</title>
     <link rel="stylesheet" href="./style.css">
+	<script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -33,50 +34,58 @@
                 <div>
                     <label for="firstname">FIRST NAME</label>
                     <input type="text" id="firstname" pattern="^[a-zA-Z]*$" placeholder="John">
-                    <p class="errorMsg"></p>
+                    <p class="errorMsg" aria-live="polite"></p>
+
                 </div>
 
                 <div>
                     <label for="lastname">LAST NAME</label>
                     <input type="text" id="lastname" pattern="^[a-zA-Z]*$" placeholder="Doe">
-                    <p class="errorMsg"></p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
                 <div>
-                    <label for="country">COUNTRY</label>
-                    <input type="text" id="country" pattern="^[a-zA-Z]*$" placeholder="France">
-                    <p class="errorMsg"></p>
+					<label for="country">COUNTRY</label>
+					<select id="country">
+						<option value="" hidden disabled selected>Select a country</option>
+						<option value="ch">Switzerland</option>
+						<option value="fr">France</option>
+						<option value="de">Germany</option>
+						<option value="nl">The Netherlands</option>
+						<option value="ot">Other country</option>
+					</select>
+					<p class="errorMsg" aria-live="polite"></p>
                 </div>
 
                 <div>
                     <label for="postal-code">POSTAL CODE</label>
                     <input type="text" id="postal-code" pattern="^[0-9]*$" placeholder="75000">
-                    <p class="errorMsg"></p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
 
                 <div>
                     <label for="email">EMAIL *</label>
                     <input type="email" name="email" id="email" placeholder="user@gmail.com" required>
-                    <p class="errorMsg">Please fill in this field properly</p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
                 <div>
                     <label for="phone-number">PHONE NUMBER</label>
                     <input type="number" name="phone-number" id="phone-number" placeholder="0123456789">
-                    <p class="errorMsg"></p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
                 <div>
                     <label for="password">PASSWORD *</label>
                     <input type="password" name="password" id="password" required>
-                    <p class="errorMsg">Please fill in this field properly</p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
                 <div>
                     <label for="confirm-password">CONFIRM PASSWORD *</label>
                     <input type="password" name="confirm-password" id="confirm-password" required>
-                    <p class="errorMsg">Please fill in this field properly</p>
+                    <p class="errorMsg" aria-live="polite"></p>
                 </div>
             </form>
         </section>
