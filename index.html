@@ -33,14 +33,14 @@
             <form novalidate id="sign-up">
                 <div>
                     <label for="firstname">FIRST NAME</label>
-                    <input type="text" id="firstname" pattern="^[a-zA-Z]*$" placeholder="John">
+                    <input type="text" id="firstname" pattern="(?!-)[a-zA-Z\- ]*[a-zA-Z]" placeholder="John">
                     <p class="errorMsg" aria-live="polite"></p>
 
                 </div>
 
                 <div>
                     <label for="lastname">LAST NAME</label>
-                    <input type="text" id="lastname" pattern="^[a-zA-Z]*$" placeholder="Doe">
+                    <input type="text" id="lastname" pattern="(?!-)[a-zA-Z\- ]*[a-zA-Z]" placeholder="Doe">
                     <p class="errorMsg" aria-live="polite"></p>
                 </div>
 
