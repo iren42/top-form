@@ -147,6 +147,7 @@ select {
     padding: 0 0.4em;
     font-size: var(--font-size-md);
 	background-color: transparent;
+	color: black;
 }
 
 input:focus,
@@ -154,7 +155,6 @@ select:focus {
     outline: none;
     border-color: blue;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-	color: black;
 }
 
 select {
@@ -164,23 +164,23 @@ select {
 	}
 }
 
-input:user-invalid,
-select:user-invalid {
-    border-color: red;
-}
-
 .errorMsg {
     height: 2rem;
     color: transparent;
 }
 
-:has(> select:user-invalid) .errorMsg,
-:has(> input:user-invalid) .errorMsg {
+.errorMsg.show,
+.errorMsg.show {
     color: red;
 }
 
-select:user-valid,
-input:user-valid {
+input:has(+ .errorMsg.show),
+select:has(+ .errorMsg.show) {
+    border-color: red;
+}
+
+input:valid,
+select:valid {
     border-color: lightgreen;
 }
 
@@ -194,6 +194,7 @@ button[type="submit"] {
     font-weight: 600;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
     margin-bottom: 2em;
+	cursor: pointer;
 }
 
 a {
