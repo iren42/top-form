@@ -3,6 +3,15 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z
 const NAME_REGEX = /^(?!-)[a-zA-Z -]*[a-zA-Z]$/;
 const PHONE_REGEX = /^[\+]?[0-9]{0,3}\W?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
+// Valid Password: at least 8 characters, at least one letter and one number
+const PASSWORD_REGEX = /\d+/;
+const PASSWORD_REGEX1 = /[a-zA-Z]+/;
+const PASSWORD_REGEX2 = /[\S]{8,}/;
+
+const confirmPassword = document.querySelector("#confirm-password");
+const confirmPasswordError = document.querySelector("#confirm-password + .errorMsg");
+const password = document.querySelector("#password");
+const passwordError = document.querySelector("#password + .errorMsg");
 const phone = document.querySelector("#phone-number");
 const phoneError = document.querySelector("#phone-number + .errorMsg");
 const email = document.querySelector("#email");
@@ -15,6 +24,10 @@ const postalCode = document.querySelector("#postal-code");
 const postalCodeError = document.querySelector("#postal-code + .errorMsg");
 const form = document.querySelector("#sign-up");
 
+if (!password || !passwordError)
+	throw new Error("No password input");
+if (!confirmPassword || !confirmPasswordError)
+	throw new Error("No confirm password input");
 if (!phone || !phoneError)
 	throw new Error("No phone number input");
 if (!postalCode || !postalCodeError)
@@ -39,6 +52,8 @@ InputValidator.prototype.test = function() {
 }
 
 const emailValidator = new InputValidator(email, emailError, updateEmailError);
+const passwordValidator = new InputValidator(password, passwordError, updatePasswordError);
+const confirmPasswordValidator = new InputValidator(confirmPassword, confirmPasswordError, updateConfirmPasswordError);
 const phoneValidator = new InputValidator(phone, phoneError, updatePhoneError);
 const postalCodeValidator = new InputValidator(postalCode, postalCodeError, updatePostalCodeError);
 const firstnameValidator = new InputValidator(firstname, firstnameError, updateNameError);
@@ -125,7 +140,42 @@ function updatePhoneError(phoneField, error)
 	}
 }
 
+function updatePasswordError(passwordField, error) {
+	error.className = "errorMsg show";
+	if (passwordField.validity.valueMissing)
+		error.textContent = "No value typed";
+	else if (!PASSWORD_REGEX.test(passwordField.value))
+		error.textContent = "Password should have at least one number";
+	else if (!PASSWORD_REGEX1.test(passwordField.value))
+		error.textContent = "Password should have at least one letter";
+	else if (!PASSWORD_REGEX2.test(passwordField.value))
+		error.textContent = "Password should have at least 8 characters";
+	else if (passwordField.validity.typeMismatch) {
+		error.textContent = "Not a password type";
+	} else {
+		error.textContent = "";
+		error.className = "errorMsg";
+	}
+}
+
+function updateConfirmPasswordError(field, error) {
+	const password = document.querySelector("#password");
+	if (!password)
+		throw new Error("No password input");
+	error.className = "errorMsg show";
+	if (field.validity.valueMissing)
+		error.textContent = "No value typed";
+	else if (password.value !== field.value)
+		error.textContent = "Does not match password";
+	else {
+		error.textContent = "";
+		error.className = "errorMsg";
+	}
+}
+
 email.addEventListener("input", () => { emailValidator.test(); });
+password.addEventListener("input", () => { passwordValidator.test(); });
+confirmPassword.addEventListener("input", () => { confirmPasswordValidator.test(); });
 phone.addEventListener("input", () => { phoneValidator.test(); });
 postalCode.addEventListener("input", () => { postalCodeValidator.test(); });
 firstname.addEventListener("input", () => { firstnameValidator.test(); });
