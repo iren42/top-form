@@ -1,7 +1,10 @@
 // Regular expression for email validation as per HTML specification
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const NAME_REGEX = /^(?!-)[a-zA-Z -]*[a-zA-Z]$/;
+const PHONE_REGEX = /^[\+]?[0-9]{0,3}\W?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
+const phone = document.querySelector("#phone-number");
+const phoneError = document.querySelector("#phone-number + .errorMsg");
 const email = document.querySelector("#email");
 const emailError = document.querySelector("#email + .errorMsg");
 const firstname = document.querySelector("#firstname");
@@ -12,6 +15,8 @@ const postalCode = document.querySelector("#postal-code");
 const postalCodeError = document.querySelector("#postal-code + .errorMsg");
 const form = document.querySelector("#sign-up");
 
+if (!phone || !phoneError)
+	throw new Error("No phone number input");
 if (!postalCode || !postalCodeError)
 	throw new Error("No postal-code input");
 if (!email || !emailError)
@@ -34,6 +39,7 @@ InputValidator.prototype.test = function() {
 }
 
 const emailValidator = new InputValidator(email, emailError, updateEmailError);
+const phoneValidator = new InputValidator(phone, phoneError, updatePhoneError);
 const postalCodeValidator = new InputValidator(postalCode, postalCodeError, updatePostalCodeError);
 const firstnameValidator = new InputValidator(firstname, firstnameError, updateNameError);
 const lastnameValidator = new InputValidator(lastname, lastnameError, updateNameError);
@@ -104,7 +110,23 @@ function updatePostalCodeError(postalCodeField, error) {
 	}
 }
 
+function updatePhoneError(phoneField, error)
+{
+	error.className = "errorMsg show";
+	if (phoneField.validity.valueMissing)
+		error.textContent = "No value typed";
+	else if (!PHONE_REGEX.test(phoneField.value))
+		error.textContent = "Pattern does not match a phone number";
+	else if (phoneField.validity.typeMismatch) {
+		error.textContent = "Not a tel type";
+	} else {
+		error.textContent = "";
+		error.className = "errorMsg";
+	}
+}
+
 email.addEventListener("input", () => { emailValidator.test(); });
+phone.addEventListener("input", () => { phoneValidator.test(); });
 postalCode.addEventListener("input", () => { postalCodeValidator.test(); });
 firstname.addEventListener("input", () => { firstnameValidator.test(); });
 lastname.addEventListener("input", () => { lastnameValidator.test(); });
