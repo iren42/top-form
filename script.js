@@ -151,16 +151,22 @@
 		const form = document.querySelector("#sign-up");
 		form.addEventListener("submit", event => {
 			event.preventDefault();
+			const tooltipText = document.querySelector(".tooltiptext");
+
 			if (!handleError("email", EMAIL_REGEX)
 				|| !handleError("phone-number", PHONE_REGEX)
 				|| !handleError("firstname", NAME_REGEX)
 				|| !handleError("lastname", NAME_REGEX)
 				|| !handlePasswordError()
 				|| !handleConfirmPasswordError()
-				|| !handlePostalCodeError())
+				|| !handlePostalCodeError()) {
 				console.log("retry");
-			else
+				tooltipText.className = "tooltiptext";
+			}
+			else {
 				console.log("submit!");
+				tooltipText.className = "tooltiptext show";
+			}
 		});
 	}
 	catch (e) {
