@@ -116,7 +116,7 @@
 		else {
 			error.textContent = "";
 			error.className = "errorMsg";
-			isValid = false;
+			isValid = true;
 		}
 		return (isValid);
 	}
