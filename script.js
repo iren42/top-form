@@ -33,7 +33,9 @@
 		return (isValid);
 	}
 
-	function handlePostalCodeError(postalCodeField, error) {
+	function handlePostalCodeError() {
+		const postalCodeField = document.querySelector(`#postal-code`);
+		const error = document.querySelector(`#postal-code + .errorMsg`);
 		let isValid = false;
 		// For each country, defines the pattern that the postal code has to follow
 		const constraints = {
@@ -53,7 +55,8 @@
 				"^(NL-)?\\d{4}\\s*([A-RT-Z][A-Z]|S[BCE-RT-Z])$",
 				"Dutch postal codes must have exactly 4 digits, followed by 2 letters except SA, SD and SS",
 			],
-			ot: ["", "",],
+			other: [NOTHING_REGEX, "",],
+			none: [NOTHING_REGEX, "",],
 		};
 
 		// Read the country id
