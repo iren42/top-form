@@ -39,6 +39,7 @@
 		let isValid = false;
 		// For each country, defines the pattern that the postal code has to follow
 		const constraints = {
+			none: [NOTHING_REGEX, "",],
 			ch: [
 				"^(CH-)?\\d{4}$",
 				"Swiss postal codes must have exactly 4 digits: e.g. CH-1950 or 1950",
@@ -56,7 +57,6 @@
 				"Dutch postal codes must have exactly 4 digits, followed by 2 letters except SA, SD and SS",
 			],
 			other: [NOTHING_REGEX, "",],
-			none: [NOTHING_REGEX, "",],
 		};
 
 		// Read the country id
@@ -145,6 +145,8 @@
 
 		const postalCode = document.querySelector("#postal-code");
 		postalCode.addEventListener("input", () => { handlePostalCodeError(); });
+		const country = document.querySelector("#country");
+		country.addEventListener("change", () => { handlePostalCodeError(); });
 
 		const form = document.querySelector("#sign-up");
 		form.addEventListener("submit", event => {
